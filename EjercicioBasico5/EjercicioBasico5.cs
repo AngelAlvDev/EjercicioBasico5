@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -10,25 +11,13 @@ namespace EjercicioBasico5
     {
         static void Main(string[] args)
         {
-            Int32 primer_numero = -1;
+            Random rnd = new Random();
+            Int32 primer_numero = rnd.Next(21);
             Int32 segundo_numero = 0;
             Boolean acierto = false;
             Int16 intentos = 0;
-            while ((primer_numero < 0) || (primer_numero > 20))
-            {
-                Console.ForegroundColor = ConsoleColor.Cyan;
-                Console.WriteLine("Jugador 1");
-                Console.ForegroundColor = ConsoleColor.White;
-                Console.Write("Introduzca un número a adivinar entre 0 y 20: ");
-                primer_numero = Convert.ToInt32(Console.ReadLine());
-                if(primer_numero < 0 || primer_numero > 20)
-                {
-                    Console.WriteLine("El número introducido no es válido. Intente de nuevo");
-                }
-            }
-            Console.Clear();
             Console.ForegroundColor = ConsoleColor.Cyan;
-            Console.WriteLine("Jugador 2");
+            Console.WriteLine("Jugador");
             Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine("Turno de adivinar: ");
 
