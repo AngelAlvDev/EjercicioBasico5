@@ -13,6 +13,7 @@ namespace EjercicioBasico5
             Int32 primer_numero = -1;
             Int32 segundo_numero = 0;
             Boolean acierto = false;
+            Int16 intentos = 0;
             while ((primer_numero < 0) || (primer_numero > 20))
             {
                 Console.ForegroundColor = ConsoleColor.Cyan;
@@ -31,7 +32,7 @@ namespace EjercicioBasico5
             Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine("Turno de adivinar: ");
 
-            while ( !acierto)
+            while (!acierto && intentos < 5)
             {
                 Console.Write("Introduzca un número: ");
                 segundo_numero = Convert.ToInt32(Console.ReadLine());
@@ -45,6 +46,11 @@ namespace EjercicioBasico5
                     else
                     {
                         Console.WriteLine("El número buscado es menor que " + segundo_numero);
+                    }
+                    intentos++;
+                    if(intentos == 5)
+                    {
+                        Console.WriteLine("Has perdido. El número buscado es: " + primer_numero);
                     }
                 }
                 else
